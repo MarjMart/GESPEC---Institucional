@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GESPEC - Inteligência Financeira para APMs</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Urbanist:wght@700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="logo.PNG" alt="GESPEC Logo" class="brand-logo">
+        </div>
+        <nav class="nav-links">
+            <a href="#" id="linkSolucao">Solução</a>
+            <a href="#" id="linkSeguranca">Segurança</a>
+            <a href="#" id="linkPlanos">Planos</a>
+        </nav>
+        <a href="#" class="btn-nav" id="abrirModal">Agendar Demonstração</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>GESPEC: Sistema de Gestão Especializada APM – <span>Transparência</span> e Eficiência.</h1>
+            <p>Elimine planilhas complexas e processos manuais. Centralize o controle financeiro da sua instituição de ensino com uma plataforma ágil, inteligente e totalmente segura.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary" id="abrirModalHero">Teste Grátis</a>
+                <a href="#" class="btn-secondary" id="linkSolucaoHero">Conhecer Produto</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="dashboard-container">
+                <img src="dash.png" alt="Dashboard GESPEC" class="dashboard-img">
+            </div>
+        </div>
+    </section>
+
+    <section class="pillars-section">
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="icon-box"><i class="fa-solid fa-eye"></i></div>
+                <h3>Transparência</h3>
+                <p>Prestação de contas clara para a diretoria, conselho e comunidade escolar automáticos.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+                <h3>Agilidade</h3>
+                <p>Validação automática de CNPJ e dados fiscais no lançamento, reduzindo erros em até 95%.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Segurança</h3>
+                <p>Back-end robusto e logs de auditoria imutáveis. Saiba exatamente quem inseriu ou alterou cada dado.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="icon-box"><i class="fa-solid fa-expand"></i></div>
+                <h3>Escalabilidade</h3>
+                <p>Pronto para gerenciar múltiplas escolas e crescer junto com a expansão da sua rede de ensino.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="modalSolucao" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-fechar">&times;</button>
+            <h3>A Solução GESPEC</h3>
+            <p class="modal-subtitulo">A revolução digital que a gestão da sua APM precisa.</p>
+            <div class="modal-body-text">
+                <p>O GESPEC foi projetado especificamente para acabar com a dor de cabeça das planilhas compartilhadas e processos manuais em Associações de Pais e Mestres.</p>
+                <ul class="modal-lista">
+                    <li><i class="fa-solid fa-check color-verde"></i> Painéis financeiros visuais de fácil entendimento.</li>
+                    <li><i class="fa-solid fa-check color-verde"></i> Geração de relatórios automáticos prontos para apresentação.</li>
+                    <li><i class="fa-solid fa-check color-verde"></i> Histórico centralizado e acessível de qualquer lugar.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalSeguranca" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-fechar">&times;</button>
+            <h3>Segurança dos Dados</h3>
+            <p class="modal-subtitulo">Seus dados financeiros protegidos com tecnologia de ponta.</p>
+            <div class="modal-body-text">
+                <p>Sabemos da responsabilidade que é gerir verbas escolares. Por isso, a segurança é o pilar central do back-end do nosso sistema.</p>
+                <ul class="modal-lista">
+                    <li><i class="fa-solid fa-lock color-verde"></i> Criptografia avançada na proteção de dados institucionais.</li>
+                    <li><i class="fa-solid fa-lock color-verde"></i> Logs de auditoria imutáveis (saiba quem fez cada alteração e quando).</li>
+                    <li><i class="fa-solid fa-lock color-verde"></i> Controle estrito de níveis de acesso por usuário do sistema.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalPlanos" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-fechar">&times;</button>
+            <h3>Planos e Parcerias</h3>
+            <p class="modal-subtitulo">Modelos flexíveis para cada realidade escolar.</p>
+            <div class="modal-body-text">
+                <p>O GESPEC nasceu no ambiente acadêmico para apoiar as instituições de ensino. Temos condições ideais tanto para escolas individuais quanto para redes de ensino integradas.</p>
+                <ul class="modal-lista">
+                    <li><i class="fa-solid fa-star color-verde"></i> <strong>Plano ETEC Starter:</strong> Especializado para unidades técnicas.</li>
+                    <li><i class="fa-solid fa-star color-verde"></i> <strong>Plano Multiescolas:</strong> Centralização para diretorias de ensino.</li>
+                    <li><i class="fa-solid fa-star color-verde"></i> Suporte técnico especializado incluso na implantação.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalContato" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-fechar">&times;</button>
+            <h3>Solicitar Demonstração</h3>
+            <p>Preencha os dados abaixo e nossa equipe entrará em contato para agendar uma apresentação exclusiva do sistema.</p>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="nome">Seu Nome</label>
+                    <input type="text" id="nome" placeholder="Ex: Maria Silva" required>
+                </div>
+                <div class="form-group">
+                    <label for="escola">Instituição de Ensino / ETEC</label>
+                    <input type="text" id="escola" placeholder="Ex: ETEC Dra. Ruth Cardoso" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail Institucional</label>
+                    <input type="email" id="email" placeholder="seuemail@escola.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem (Opcional)</label>
+                    <textarea id="mensagem" rows="3" placeholder="Conte um pouco sobre as necessidades da sua APM..."></textarea>
+                </div>
+                <button type="submit" class="btn-enviar-form">Enviar Solicitação</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mapeamento dos botões/links e suas respectivas caixas (modais)
+        const rotasModais = {
+            'linkSolucao': 'modalSolucao',
+            'linkSolucaoHero': 'modalSolucao',
+            'linkSeguranca': 'modalSeguranca',
+            'linkPlanos': 'modalPlanos',
+            'abrirModal': 'modalContato',
+            'abrirModalHero': 'modalContato'
+        };
+
+        // Adiciona evento de clique para abrir os modais correspondentes
+        Object.keys(rotasModais).forEach(idBotao => {
+            const elemento = document.getElementById(idBotao);
+            if (elemento) {
+                elemento.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.getElementById(rotasModais[idBotao]).classList.add('ativo');
+                });
+            }
+        });
+
+        // Seleciona todos os botões de fechar (X) das caixas
+        const botoesFechar = document.querySelectorAll('.modal-fechar');
+        botoesFechar.forEach(botao => {
+            botao.addEventListener('click', () => {
+                botao.closest('.modal-overlay').classList.remove('ativo');
+            });
+        });
+
+        // Fecha a caixa se o usuário clicar no fundo desfocado
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-overlay')) {
+                e.target.classList.remove('ativo');
+            }
+        });
+    </script>
+</body>
+</html>
