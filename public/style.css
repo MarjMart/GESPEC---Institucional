@@ -251,13 +251,16 @@ body::after {
 
     font-size: 58px;
 
-    line-height: 1.08;
+    line-height: 1.15;
 
     letter-spacing: -2px;
 
     color: var(--verde-escuro);
 
     margin-bottom: 28px;
+
+    word-break: norma;
+    overflow-wrap: break-word;
 }
 
 .hero-content h1 span {
