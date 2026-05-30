@@ -263,6 +263,7 @@ body::after {
 .hero-content h1 span {
 
     color: var(--verde-marca);
+    display: inline;
 }
 
 .hero-content p {
