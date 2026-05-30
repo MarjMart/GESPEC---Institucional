@@ -12,7 +12,7 @@ const rotasModais = {
     // MENU
     linkSolucao: "modalSolucao",
     linkSeguranca: "modalSeguranca",
-    linkPlanos: "modalPlanos",
+    linkFuncionalidades: "modaluncionalidades",
 
     // HERO
     linkSolucaoHero: "modalSolucao",
