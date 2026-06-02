@@ -1,183 +1,293 @@
 
-import {
-    db,
-    collection,
-    addDoc
-} from "./firebase.js";
-
-// CONTROLE DOS MODAIS
-
-const rotasModais = {
-
-    // MENU
-    linkSolucao: "modalSolucao",
-    linkSeguranca: "modalSeguranca",
-    linkFuncionalidades: "modaFuncionalidades",
-
-    // HERO
-    linkSolucaoHero: "modalSolucao",
-
-    // NAVBAR
-    abrirModal: "modalContato"
-};
-
-// ABRIR MODAIS
-
-
-Object.keys(rotasModais).forEach((idBotao) => {
-
-    const elemento = document.getElementById(idBotao);
-
-    if (!elemento) return;
-
-    elemento.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        const idModal = rotasModais[idBotao];
-
-        const modal = document.getElementById(idModal);
-
-        if (modal) {
-
-            modal.classList.add("ativo");
-
-        }
-
-    });
-
-});
-
-// WHATSAPP DIRETO
-
-const btnEspecialista =
-    document.getElementById("falarEspecialista");
-
-if (btnEspecialista) {
-
-    btnEspecialista.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        const mensagem =
-`Olá! Gostaria de falar com um especialista sobre o GESPEC.`;
-
-        const numeroWhatsApp = "5513997507042";
-
-        const url =
-`https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-
-        window.open(url, "_blank");
-
-    });
-
+:root {
+    --bg: #0b0f17;
+    --surface: #111827;
+    --card: #161f2e;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --primary: #4f7cff;
+    --primary-dark: #3b5edc;
+    --border: rgba(255, 255, 255, 0.08);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
 
-// FECHAR MODAL NO BOTÃO X
+body {
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
 
-const botoesFechar = document.querySelectorAll(".modal-fechar");
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 6%;
+    position: sticky;
+    top: 0;
+    background: rgba(11, 15, 23, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
 
-botoesFechar.forEach((botao) => {
+.nav-links a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 500;
+    transition: 0.3s;
+}
 
-    botao.addEventListener("click", function () {
+.nav-links a:hover {
+    color: var(--text);
+}
 
-        const modal = botao.closest(".modal-overlay");
+.btn-nav {
+    background: var(--primary);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
 
-        if (modal) {
+.btn-nav:hover {
+    background: var(--primary-dark);
+}
 
-            modal.classList.remove("ativo");
-        }
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 90px 6%;
+    gap: 40px;
+}
 
-    });
+.hero-content {
+    max-width: 520px;
+}
 
-});
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
 
+.hero p {
+    color: var(--muted);
+    font-size: 16px;
+    margin-bottom: 24px;
+}
 
-// FECHAR MODAL CLICANDO FORA
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
 
-const overlays = document.querySelectorAll(".modal-overlay");
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
 
-overlays.forEach((overlay) => {
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
 
-    overlay.addEventListener("click", function (e) {
+.btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+}
 
-        if (e.target === overlay) {
+.hero-image img {
+    width: 520px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
 
-            overlay.classList.remove("ativo");
-        }
+/* SEÇÕES */
+section {
+    padding: 80px 6%;
+}
 
-    });
+/* TITULOS */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-});
+.section-title h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
 
-// FORMULÁRIO WHATSAPP
+.section-title p {
+    color: var(--muted);
+}
 
-const formulario = document.getElementById("meuFormulario");
+/* SCREEN GRID */
+.screens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
 
-if (formulario) {
+.screen-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: 0.3s;
+}
 
-    formulario.addEventListener("submit", async function (e) {
+.screen-card:hover {
+    transform: translateY(-5px);
+}
 
-        e.preventDefault();
+.screen-card img {
+    width: 100%;
+    display: block;
+}
 
-        // CAPTURA DOS DADOS
-        const nome = document.getElementById("nome").value;
-        const escola = document.getElementById("escola").value;
-        const email = document.getElementById("email").value;
-        const mensagem = document.getElementById("mensagem").value;
+.screen-card h3 {
+    padding: 12px;
+    font-size: 14px;
+    color: var(--text);
+}
 
-        // SALVAR FIREBASE
+/* BENEFÍCIOS */
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
 
-await addDoc(
-    collection(db, "leads"),
-    {
-        nome: nome,
-        escola: escola,
-        email: email,
-        mensagem: mensagem,
-        data: new Date()
+.pillar-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 14px;
+}
+
+.icon-box {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.pillar-card h3 {
+    margin-bottom: 8px;
+}
+
+.pillar-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* CTA */
+.cta-section {
+    text-align: center;
+    background: linear-gradient(135deg, var(--surface), var(--card));
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.cta-section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.cta-section p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+/* MODAL */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-card {
+    background: var(--surface);
+    padding: 24px;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 520px;
+    border: 1px solid var(--border);
+}
+
+.modal-fechar {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 24px;
+    float: right;
+    cursor: pointer;
+}
+
+/* FORM */
+.modal-form input,
+.modal-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+}
+
+.btn-enviar-form {
+    margin-top: 12px;
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-enviar-form:hover {
+    background: var(--primary-dark);
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
     }
-);
 
-        // TEXTO WHATSAPP
-        const texto =
-            `Olá! Gostaria de solicitar uma demonstração do GESPEC.
+    .hero-image img {
+        width: 100%;
+        max-width: 420px;
+    }
 
-            Nome: ${nome}
-            Instituição: ${escola}
-            E-mail: ${email}
-            Mensagem: ${mensagem}`;
-
-
-        // NÚMERO WHATSAPP
-        const numeroWhatsApp = "5513997507042";
-
-
-        // FECHAR MODAL
-        const modal = document.getElementById("modalContato");
-
-        if (modal) {
-
-            modal.classList.remove("ativo");
-        }
-
-
-        // LIMPAR FORMULÁRIO
-        formulario.reset();
-
-
-        // ESPERA ANIMAÇÃO DO MODAL
-        setTimeout(function () {
-
-            // ALERTA
-            alert(
-                "Solicitação enviada com sucesso! Entraremos em contato o quanto antes."
-            );
-
-
-        }, 300);
-
-    });
-
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }
