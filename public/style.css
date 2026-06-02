@@ -377,7 +377,6 @@ body::after {
 
     border-radius: 18px;
 
-    border-radius: 18px;
 }
 
 
@@ -444,6 +443,8 @@ body::after {
     transition: var(--transition);
 }
 
+
+
 .pillar-card:hover .icon-box {
 
     background: var(--verde-marca);
@@ -494,6 +495,8 @@ body::after {
 
     padding: 20px;
 
+    overflow-y: auto;
+
     background:
         rgba(4,57,39,0.45);
 
@@ -520,6 +523,12 @@ body::after {
     width: 100%;
     max-width: 720px;
 
+    max-height: 90vh;
+
+    overflow-x: hidden;
+    
+    overflow-y: auto;
+    
     padding: 48px;
 
     border-radius: 32px;
@@ -538,8 +547,6 @@ body::after {
         0 40px 80px rgba(4,57,39,0.18);
 
     position: relative;
-
-    overflow: hidden;
 
     transform:
         scale(0.92)
@@ -876,42 +883,39 @@ body::after {
 
 @media (max-width: 768px) {
 
-    .navbar {
-
-        padding: 16px 5%;
+    .brand-logo {
+        height: 70px;
     }
 
     .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
 
+    .btn-nav {
         display: none;
     }
 
     .hero {
-
-        padding:
-            60px 5% 80px;
+        padding: 60px 5% 80px;
     }
 
     .hero-content h1 {
-
         font-size: 42px;
     }
 
     .hero-content p {
-
         font-size: 16px;
     }
 
     .pillars-section {
-
-        padding:
-            0 5% 80px;
+        padding: 0 5% 80px;
     }
 
     .modal-card {
-
         padding: 32px 24px;
+        max-height: 85vh;
     }
-
-    }
-    
+}    
