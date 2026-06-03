@@ -5,6 +5,8 @@ import {
     addDoc
 } from "./firebase.js";
 
+console.log("SCRIPT CARREGADO");
+
 // CONTROLE DOS MODAIS
 
 const rotasModais = {
