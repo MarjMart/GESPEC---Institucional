@@ -22,29 +22,47 @@ const rotasModais = {
     abrirModal: "modalContato"
 };
 
-// ABRIR MODAIS
+// UX - MENU MOBILE (HAMBURGUER)
 
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+// ABRIR / FECHAR MENU
+if (menuToggle && navLinks) {
+
+    menuToggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        navLinks.classList.toggle("active");
+    });
+
+    navLinks.addEventListener("click", function (e) {
+        e.stopPropagation();
+    });
+
+    document.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+    });
+}
+
+// ABRIR MODAIS
 
 Object.keys(rotasModais).forEach((idBotao) => {
 
     const elemento = document.getElementById(idBotao);
+    const idModal = rotasModais[idBotao];
 
-    if (!elemento) return;
+    if (!elemento || !idModal) return;
+
+    const modal = document.getElementById(idModal);
+
+    if (!modal) return;
 
     elemento.addEventListener("click", function (e) {
-
         e.preventDefault();
 
-        const idModal = rotasModais[idBotao];
+        navLinks?.classList.remove("active"); 
 
-        const modal = document.getElementById(idModal);
-
-        if (modal) {
-
-            modal.classList.add("ativo");
-
-        }
-
+        modal.classList.add("ativo");
     });
 
 });
